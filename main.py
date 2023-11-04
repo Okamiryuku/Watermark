@@ -1,6 +1,10 @@
 from tkinter import *
 from tkinter import filedialog
+from tkinter import ttk
 from PIL import Image, ImageDraw, ImageFont
+
+
+WATERMARK = 'Francisco Suarez Maceiras'
 
 
 # Function to add watermark to the selected image
@@ -13,7 +17,7 @@ def add_watermark():
     draw = ImageDraw.Draw(image)
 
     # Define the text for the watermark and font size
-    watermark_text = "Your Watermark"
+    watermark_text = WATERMARK
     font = ImageFont.truetype("arial.ttf", 36)
 
     # Position the watermark in the bottom-right corner
@@ -37,12 +41,19 @@ def add_watermark():
 # Create the main window
 window = Tk()
 window.title("Image Watermark App")
-window.minsize(width=200, height=200)
+window.minsize(width=200, height=50)
+window.configure(bg="lightgray")  # Set background color
+
+
+# Style the Button
+style = ttk.Style()
+style.configure("TButton", foreground="green", background="black", font=("Helvetica", 12))
 
 
 # Create a button to add watermark
-add_watermark_button = Button(window, text="Add Watermark", command=add_watermark)
-add_watermark_button.pack()
+add_watermark_button = ttk.Button(window, text="Select Image", style="TButton", command=add_watermark)
+add_watermark_button.pack(side="top", fill="both", expand=True, padx=10, pady=10, anchor="center")
+
 
 # Start the Tkinter main loop
 window.mainloop()
