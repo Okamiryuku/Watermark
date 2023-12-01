@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import filedialog
 from tkinter import ttk
 from PIL import Image, ImageDraw, ImageFont
+from ttkbootstrap import Style
 
 
 WATERMARK = 'Francisco Suarez Maceiras'
@@ -46,8 +47,7 @@ window.configure(bg="lightgray")  # Set background color
 
 
 # Style the Button
-style = ttk.Style()
-style.configure("TButton", foreground="green", background="black", font=("Helvetica", 12))
+style = Style(theme="pulse")
 
 
 # Create a button to add watermark
